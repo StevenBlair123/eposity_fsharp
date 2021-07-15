@@ -8,8 +8,6 @@
 //4. EF / repo
 //5. Organisation State record
 
-
-
 let console message = printfn message
 
 //Start query rest event handler
