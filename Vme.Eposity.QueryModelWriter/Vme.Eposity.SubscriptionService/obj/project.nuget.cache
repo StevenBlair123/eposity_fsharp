@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "5I7PnZlEcoWBKIfhqu3rIcs/WoXlpArzY4qHsWPyojXLWF9Wb+oD42cigNVe33MFYfrIQGNlJJulIZiy5vUZFw==",
+  "success": true,
+  "projectFilePath": "C:\\Git\\eposity_fsharp\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.SubscriptionService\\Vme.Eposity.SubscriptionService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Steven Blair\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Steven Blair\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

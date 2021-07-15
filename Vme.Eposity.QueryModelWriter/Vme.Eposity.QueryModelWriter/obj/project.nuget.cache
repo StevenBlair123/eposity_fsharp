@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PPVpIvU3b24B+VqrXQY9bw3XaoOSZtjKtYHHZDfXVfCOu6m3qfkitCSVlnIMepIh0iRsG0ieLEnYP9qRKX0zew==",
+  "success": true,
+  "projectFilePath": "C:\\Git\\eposity_fsharp\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.QueryModelWriter.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Steven Blair\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
