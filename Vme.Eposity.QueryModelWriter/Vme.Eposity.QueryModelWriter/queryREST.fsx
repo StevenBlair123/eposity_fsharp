@@ -62,6 +62,9 @@ events
 
 //TODO: what is happening between Seq.map Seq.fold and Seq.reduce
 //|> Seq.reduce (fun x y -> ("",1)) - we would use this when we need to take elemetns and create something new
+
+
 //Don'think this is what we need to for an eventhandler / commandhandler
+
 
 
