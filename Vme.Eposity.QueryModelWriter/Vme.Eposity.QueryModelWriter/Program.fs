@@ -37,4 +37,5 @@ module Program =
 //7. REST - inject internal SS
 //8. How does C# pass domain events to F# - deserialise in C#?
 //9. Logging
+
 //10.LoadTypes = should we pass into the SS
