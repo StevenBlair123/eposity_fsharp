@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Vme.Eposity.QueryModelWriter", "Vme.Eposity.QueryModelWriter\Vme.Eposity.QueryModelWriter.fsproj", "{06AE62CC-8707-47AD-BFF7-A2597969D9A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06AE62CC-8707-47AD-BFF7-A2597969D9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06AE62CC-8707-47AD-BFF7-A2597969D9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06AE62CC-8707-47AD-BFF7-A2597969D9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06AE62CC-8707-47AD-BFF7-A2597969D9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46541DBA-B8AD-444C-85C2-BB4413595EC2}
+	EndGlobalSection
+EndGlobal
