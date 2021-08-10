@@ -26,12 +26,10 @@ let createOrder state =
     state //this would be the new state
 
 let handleEvent (event, state:int) = 
-    let newState = 
         match event with 
         | "orderCreated" -> createOrder state
         | _ -> state
 
-    newState
 
 let saveState state = 
     console "Saving state %d" state
@@ -66,5 +64,45 @@ events
 
 //Don'think this is what we need to for an eventhandler / commandhandler
 
+
+let function1 e = 
+    printf "function 1 called %s\r\n" e
+    true
+
+let function2 e = 
+    printf "function 2 called %s\r\n" e
+    e
+
+let handleEvents events = 
+    printf $"test 1\r\n"
+
+    let result = events |> Seq.filter function1 |> Seq.map function2 |> (fun e -> e)
+    result
+
+let handle2 events =
+    events |> Seq.filter function1 |> Seq.map function2 |> (fun e -> ())
+    ()
+    //Seq.length x
+
+let eventsX = [ 
+    "orderCreated" 
+    "orderCreated"
+    "orderItemAdded"] 
+
+let result = eventsX |> handleEvents
+let g = handle2 eventsX
+
+printf "%A" g
+
+
+let tupleTest events (seq : string * string) = 
+    let result = 
+        events |> Seq.map (fun e -> 
+                                let j : string * string  = e
+                                j)
+    Seq.length result
+
+
+let r1 = tupleTest
 
 

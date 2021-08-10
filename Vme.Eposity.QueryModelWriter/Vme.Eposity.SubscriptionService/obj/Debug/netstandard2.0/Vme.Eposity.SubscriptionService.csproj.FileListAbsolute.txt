@@ -1,7 +1,6 @@
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\bin\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.deps.json
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\bin\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.dll
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\bin\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.pdb
-C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.csprojAssemblyReference.cache
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.AssemblyInfoInputs.cache
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.AssemblyInfo.cs
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.csproj.CoreCompileInputs.cache
