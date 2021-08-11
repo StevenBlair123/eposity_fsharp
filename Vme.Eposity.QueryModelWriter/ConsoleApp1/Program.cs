@@ -11,6 +11,9 @@ namespace ConsoleApp1 {
             //feed into F# entry point
             //ActionBlock in C# for grouping or in f#?
 
+            //Bootstrap
+            TopLevel.TypeMap.LoadDomainEventsTypeDynamically();
+
             List<TopLevel.Event> events = new ();
 
             String event1 = "{\r\n  \"organisationId\": \"76b2bed5-b19a-49b3-a8cd-8d5ada1f30b5\",\r\n  \"dateRegistered\": \"2021-05-25T13:33:21.0411205+00:00\",\r\n  \"organisationName\": \"Richard Inglis\"\r\n}";
@@ -36,9 +39,9 @@ namespace ConsoleApp1 {
             //                                                                                                     "3",
             //                                                                                                     FSharpList<string>.Empty)));
 
-            var result = TopLevel.EventHandler.handleEvents(events);
+            TopLevel.EventHandler.handleEvents(events);
 
-            Console.WriteLine($"{result} events processed");
+            //Console.WriteLine($"{result} events processed");
 
             Console.WriteLine($"Finished");
 

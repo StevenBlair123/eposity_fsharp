@@ -6,3 +6,4 @@ C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionServi
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.csproj.CoreCompileInputs.cache
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.dll
 C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.pdb
+C:\Git\eposity_fsharp\Vme.Eposity.QueryModelWriter\Vme.Eposity.SubscriptionService\obj\Debug\netstandard2.0\Vme.Eposity.SubscriptionService.csprojAssemblyReference.cache
