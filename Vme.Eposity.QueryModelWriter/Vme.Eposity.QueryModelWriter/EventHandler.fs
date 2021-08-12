@@ -62,17 +62,17 @@ module StateRepository =
         s
 
 module TypeMap = 
+    open System
     open System.Collections.Generic
 
     let mutable Map = new Dictionary<System.Type, string>()
-    let mutable ReverseMap = new Dictionary<string,System.Type>()
+    let mutable ReverseMap = new Dictionary<string,System.Type>(StringComparer.CurrentCultureIgnoreCase)
 
     let AddType<'a> name = 
         ReverseMap.Add(name,typeof<'a>)
         Map.Add(typeof<'a>,name)
 
     let GetType typeName = 
-        //TODO: ignore case
         ReverseMap.Item(typeName)
 
     let LoadDomainEventsTypeDynamically() =
@@ -87,13 +87,20 @@ module DomainEventFactory =
     
 module EventHandler = 
     open DomainEvents.Version1
+    open System
+
+    let private (|InvariantEqual|_|) (str:string) arg = 
+      if String.Compare(str, arg, StringComparison.OrdinalIgnoreCase) = 0
+        then Some() 
+      else None
 
     let isValidEvent eventType = 
-        //TODO: Check TypeMap instead
-        match eventType with 
-        | "organisationCreatedEvent" -> true
-        | "storeAddedEvent" -> true
-        | _ -> false
+        //TODO: Seems a bit long winded - review
+        if (TypeMap.ReverseMap.ContainsKey eventType) = false then
+            Logger.writeline $"Ignoring {eventType}" 
+            false
+        else
+            true
 
     let getStateId (domainEvent:obj) = 
         match domainEvent with
@@ -116,21 +123,23 @@ module EventHandler =
         Logger.writeline $"Saving state {state}"
         (StateRepository.saveState state)
 
+    let postProcessing e = 
+        //Logger.writeline "Applying raw SQL script"
+        e
+
     let handleEvents (events:Event seq) = 
         let _ = 
             events
-            |> Seq.map (fun e -> 
-                            Logger.writeline $"Processing {e.EventType}" 
-                            e)
             |> Seq.filter (fun e -> isValidEvent e.EventType)  
+            |> Seq.map (fun e -> 
+                            Logger.writeline $"Processing {e.EventType}" //Only log out the events we are interested in
+                            e)
             |> Seq.map (fun e -> DomainEventFactory.CreateDomainEvent e.Payload e.EventType)
             |> Seq.map loadState 
             |> Seq.map handleEvent                          
             |> Seq.map saveState  
-            |> Seq.map (fun e -> 
-                    Logger.writeline "Applying raw SQL script" 
-                    e)
-            |> Seq.iter (fun s -> Logger.writeline $"final state is {s}" ) //enumerate pipeline
+            |> Seq.map postProcessing
+            |> Seq.iter (fun _ -> () ) //enumerate pipeline
         ()
 
 

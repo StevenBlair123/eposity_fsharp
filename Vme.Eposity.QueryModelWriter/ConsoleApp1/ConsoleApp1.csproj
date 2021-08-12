@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EventStore.Client.Grpc.Streams" Version="21.2.0" />
+    <PackageReference Include="Eventuous" Version="0.4.6" />
+    <PackageReference Include="Eventuous.Projections.MongoDB" Version="0.4.6" />
+    <PackageReference Include="Eventuous.Subscriptions" Version="0.4.6" />
+    <PackageReference Include="Eventuous.Subscriptions.EventStoreDB" Version="0.4.6" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.38.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Vme.Eposity.QueryModelWriter\Vme.Eposity.QueryModelWriter.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
