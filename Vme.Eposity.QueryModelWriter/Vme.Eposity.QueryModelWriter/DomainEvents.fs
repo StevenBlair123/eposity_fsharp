@@ -6,3 +6,13 @@ type OrganisationCreatedEvent =
         dateRegistered : DateTime
         organisationId : Guid
     }
+
+type StoreAddedEvent = 
+    {   storeName : string
+        dateRegistered : DateTime
+        organisationId : Guid
+        storeId : Guid
+        externalStoreNumber : string
+        externalStoreId : string
+        externalStoreCode : string
+    }
