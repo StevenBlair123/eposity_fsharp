@@ -1,13 +1,6 @@
 ﻿module TopLevel
 
 type Event = {Payload:string; EventType: string} 
-type OrganisationState = 
-    {
-        id:System.Guid 
-        name : string
-        count : int
-    }
-    with static member Init = { id=System.Guid.Empty ; count=0 ; name=null }
 
 module JsonHelper = 
     open System
@@ -24,16 +17,10 @@ module Logger =
     let private formattedDate = System.DateTime.Now.ToString "yyyy/MM/dd HH:mm:ss.fff"
     let writeline message = printfn "%s - %s" formattedDate message
 
-module OrganisationState = 
-    let createOrganisation (state : OrganisationState , event : DomainEvents.Version1.OrganisationCreatedEvent) =
-        ({state with count = state.count + 1 ; name= event.organisationName}) 
-        
-    let addStore (state:OrganisationState, event : DomainEvents.Version1.StoreAddedEvent) =
-        ({state with count = state.count + 1})
-
 module StateRepository =
     open System
     open System.Collections.Generic
+    open Projections.Organisation
 
     let mutable state = new Dictionary<Guid, OrganisationState>()
 
@@ -79,6 +66,7 @@ module TypeMap =
         //TODO: For now, we can manually wire up
         AddType<DomainEvents.Version1.OrganisationCreatedEvent> "organisationCreatedEvent"
         AddType<DomainEvents.Version1.StoreAddedEvent> "storeAddedEvent"
+        AddType<DomainEvents.Version1.TaxRateCreatedForOrganisationEvent > "taxRateCreatedForOrganisationEvent"
 
 module DomainEventFactory = 
     let CreateDomainEvent json eventType =
@@ -88,6 +76,7 @@ module DomainEventFactory =
 module EventHandler = 
     open DomainEvents.Version1
     open System
+    open Projections.Organisation
 
     let private (|InvariantEqual|_|) (str:string) arg = 
       if String.Compare(str, arg, StringComparison.OrdinalIgnoreCase) = 0
@@ -106,18 +95,13 @@ module EventHandler =
         match domainEvent with
         | :? OrganisationCreatedEvent as s -> s.organisationId
         | :? StoreAddedEvent as s -> s.organisationId
+        | :? TaxRateCreatedForOrganisationEvent as s -> s.organisationId
         | _ -> System.Guid.Empty
     
     let loadState (domainEvent:obj) = 
         let organisationId = getStateId domainEvent
         let state = StateRepository.getState organisationId
         (domainEvent,state)
-
-    let handleEvent (event:obj, state:OrganisationState) = 
-        match event with
-        | :? OrganisationCreatedEvent as s -> OrganisationState.createOrganisation(state, s)
-        | :? StoreAddedEvent as s -> OrganisationState.addStore(state, s)
-        | _ -> state
 
     let saveState (state:OrganisationState) = 
         Logger.writeline $"Saving state {state}"
@@ -136,7 +120,7 @@ module EventHandler =
                             e)
             |> Seq.map (fun e -> DomainEventFactory.CreateDomainEvent e.Payload e.EventType)
             |> Seq.map loadState 
-            |> Seq.map handleEvent                          
+            |> Seq.map EventHandlers.Organisation.handleEvent                          
             |> Seq.map saveState  
             |> Seq.map postProcessing
             |> Seq.iter (fun _ -> () ) //enumerate pipeline

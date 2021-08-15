@@ -16,3 +16,10 @@ type StoreAddedEvent =
         externalStoreId : string
         externalStoreCode : string
     }
+
+type TaxRateCreatedForOrganisationEvent = 
+    {   code : int
+        name : string
+        taxRateId : Guid
+        organisationId : Guid
+    }

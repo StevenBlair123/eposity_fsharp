@@ -62,14 +62,14 @@ namespace ConsoleApp1 {
         private String firstEvent;
 
         public async Task HandleEvent(Object evt, Int64? position, CancellationToken cancellationToken){
-            //Program.Trace($"Event appeared {((TopLevel.Event)evt).EventType}");
+            Program.Trace($"Event appeared {((TopLevel.Event)evt).EventType}");
             Program.Trace($"position {position}");
 
-            if (String.IsNullOrEmpty(firstEvent)){
-                firstEvent = ((TopLevel.Event)evt).Payload;
-            }
+            //if (String.IsNullOrEmpty(firstEvent)){
+            //    firstEvent = ((TopLevel.Event)evt).Payload;
+            //}
 
-            currentEvent = ((TopLevel.Event)evt).Payload;
+            //currentEvent = ((TopLevel.Event)evt).Payload;
 
             //Program.Trace($"firstEvent {firstEvent}");
             //Program.Trace($"currentEvent {currentEvent}");
@@ -79,7 +79,10 @@ namespace ConsoleApp1 {
             //So that is when we call TopLevel.EventHandler.handleEvents(events);
             //After completing, we signal that we are finished (ManualResetEvent)
             //Could we dispatch an event, then write the Checkpoint off the back of that?
-            events.Add((TopLevel.Event)evt);
+            //events.Add((TopLevel.Event)evt);
+
+            this.events = new List<TopLevel.Event>() { (TopLevel.Event)evt  };
+            TopLevel.EventHandler.handleEvents(events);
 
             //TODO: either we hit the count OR a Checkpoint After ms - if we only received 4 from 5, we can't sit forever waiting
             //Do we just ditch the Count and use time?
@@ -128,7 +131,7 @@ namespace ConsoleApp1 {
             StreamSubscriptionOptions streamPersistentSubscriptionOptions = new(){
                 SubscriptionId = "Test1",
                 ResolveLinkTos = true,
-                StreamName = "$ce-OrganisationHierarchyAggregate",
+                StreamName = "$ce-OrganisationAggregate",
                 ThrowOnError = true
             };
 
