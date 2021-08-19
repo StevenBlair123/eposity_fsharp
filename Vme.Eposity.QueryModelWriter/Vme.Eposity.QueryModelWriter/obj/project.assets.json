@@ -167,6 +167,7 @@
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
+        "C:\\Git\\eposity_fsharp\\NuGet.Config",
         "C:\\Users\\Steven Blair\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -177,6 +178,7 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/Eventuous/index.json": {},
         "https://www.myget.org/F/vme-intellistore-beta/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {},
         "https://www.myget.org/F/vme-intellistore/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {},
         "https://www.myget.org/F/vme-shared/auth/024ff48c-540a-4059-8712-d54f7b0d6a31/api/v3/index.json": {}

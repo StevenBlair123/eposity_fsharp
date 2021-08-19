@@ -8,11 +8,11 @@ module Organisation =
         code : int
         name : string
         rateId : Guid
+        taxRate : decimal
         }
 
-    type OrganisationState = 
-        {
-            id:System.Guid 
+    type OrganisationState = {
+            id:Guid 
             name : string
             taxRates : Tax list
         }
@@ -24,10 +24,8 @@ module Organisation =
     let addStore (state:OrganisationState, event : StoreAddedEvent) =
         state
 
-    let addTaxRate (state, (code:int, name:string, taxRateId:System.Guid) ) = 
+    let addTaxRate (state, tax ) = 
         //TODO: handle updates
-        let tax:Tax = {code = code; name = name; rateId = taxRateId}
-   
         let newlist = tax :: state.taxRates
         ({state with taxRates= newlist})
 

@@ -5,10 +5,11 @@ type Event = {Payload:string; EventType: string}
 module JsonHelper = 
     open System
     open FSharp.Json
+    open System.Text.Json
 
     let deserialze (json:string, eventType:Type) = 
-        let mutable options = System.Text.Json.JsonSerializerOptions()
-        (System.Text.Json.JsonSerializer.Deserialize(json,eventType,options))
+        let options = new JsonSerializerOptions(IgnoreNullValues = true)       
+        (JsonSerializer.Deserialize(json,eventType,options))
 
     let serialize data = 
         Json.serialize data
@@ -86,7 +87,7 @@ module EventHandler =
     let isValidEvent eventType = 
         //TODO: Seems a bit long winded - review
         if (TypeMap.ReverseMap.ContainsKey eventType) = false then
-            Logger.writeline $"Ignoring {eventType}" 
+            //Logger.writeline $"Ignoring {eventType}" 
             false
         else
             true
@@ -115,9 +116,9 @@ module EventHandler =
         let _ = 
             events
             |> Seq.filter (fun e -> isValidEvent e.EventType)  
-            |> Seq.map (fun e -> 
-                            Logger.writeline $"Processing {e.EventType}" //Only log out the events we are interested in
-                            e)
+            //|> Seq.map (fun e -> 
+            //                Logger.writeline $"Processing {e.EventType}" //Only log out the events we are interested in
+            //                e)
             |> Seq.map (fun e -> DomainEventFactory.CreateDomainEvent e.Payload e.EventType)
             |> Seq.map loadState 
             |> Seq.map EventHandlers.Organisation.handleEvent                          

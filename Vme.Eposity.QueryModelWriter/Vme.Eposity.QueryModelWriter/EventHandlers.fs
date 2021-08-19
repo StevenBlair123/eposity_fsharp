@@ -8,6 +8,6 @@ module Organisation =
         match event with
         | :? OrganisationCreatedEvent as s -> createOrganisation(state, s)
         | :? StoreAddedEvent as s -> addStore(state, s)
-        | :? TaxRateCreatedForOrganisationEvent as s -> addTaxRate(state, (s.code,s.name,s.taxRateId))
+        | :? TaxRateCreatedForOrganisationEvent as s -> addTaxRate (state,  {code = s.code ; name = s.name ; rateId = s.taxRateId ; taxRate = s.rate})
         | _ -> state
 

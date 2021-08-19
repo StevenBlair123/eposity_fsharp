@@ -22,4 +22,5 @@ type TaxRateCreatedForOrganisationEvent =
         name : string
         taxRateId : Guid
         organisationId : Guid
+        rate : decimal
     }
