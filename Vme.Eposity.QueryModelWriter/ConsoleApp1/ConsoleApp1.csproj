@@ -7,10 +7,10 @@
 
   <ItemGroup>
     <PackageReference Include="EventStore.Client.Grpc.Streams" Version="21.2.0" />
-    <PackageReference Include="Eventuous" Version="0.4.6" />
-    <PackageReference Include="Eventuous.Projections.MongoDB" Version="0.4.6" />
-    <PackageReference Include="Eventuous.Subscriptions" Version="0.4.6" />
-    <PackageReference Include="Eventuous.Subscriptions.EventStoreDB" Version="0.4.6" />
+    <PackageReference Include="Eventuous" Version="0.4.7" />
+    <PackageReference Include="Eventuous.Projections.MongoDB" Version="0.4.7" />
+    <PackageReference Include="Eventuous.Subscriptions" Version="0.4.7" />
+    <PackageReference Include="Eventuous.Subscriptions.EventStoreDB" Version="0.4.7" />
     <PackageReference Include="Grpc.Net.Client" Version="2.38.0" />
   </ItemGroup>
 

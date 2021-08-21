@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5I7PnZlEcoWBKIfhqu3rIcs/WoXlpArzY4qHsWPyojXLWF9Wb+oD42cigNVe33MFYfrIQGNlJJulIZiy5vUZFw==",
+  "dgSpecHash": "itk7cq63lUZIXIKNF1iVWQHMiDG6/IEH3v5lSDP5JbQ3cVmxwZ6xBLKlVzNpiwoJrzfPrk7ATgC1RRBeaFxWJA==",
   "success": true,
   "projectFilePath": "C:\\Git\\eposity_fsharp\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.SubscriptionService\\Vme.Eposity.SubscriptionService.csproj",
   "expectedPackageFiles": [

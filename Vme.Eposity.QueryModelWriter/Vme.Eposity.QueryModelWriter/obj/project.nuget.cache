@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NBTF4H3VUWn3mwWaYb2o9Kn5xQ08Oezr5MQd4JyrtMvs8xruKrpIHyDfM1FJgDkD9SvecJIV/PE9MpttXx89jQ==",
+  "dgSpecHash": "OUF8j60lvE6ujLgsAtioA/G+GSqJoDxmzsPo8tfPLtn29FYJtLwLdUuW061fr8fI3Tm1TSmECdAfeaA928zWDA==",
   "success": true,
   "projectFilePath": "C:\\Git\\eposity_fsharp\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.QueryModelWriter\\Vme.Eposity.QueryModelWriter.fsproj",
   "expectedPackageFiles": [

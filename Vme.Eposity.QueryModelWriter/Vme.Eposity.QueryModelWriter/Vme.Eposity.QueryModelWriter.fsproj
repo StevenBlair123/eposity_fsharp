@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Compile Include="DomainEvents.fs" />
+    <Compile Include="Projections\Organisation.fs" />
+    <Compile Include="EventHandlers.fs" />
     <Compile Include="EventHandler.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
