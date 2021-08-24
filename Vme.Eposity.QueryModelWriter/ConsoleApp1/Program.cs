@@ -70,10 +70,13 @@
                                                                                      ThrowOnError = true
                                                                                  };
 
-            TestEventHandler testEventHandler = new(streamPersistentSubscriptionOptions.SubscriptionId);
+            //TODO: TestEventHandler and EsCheckpointStore need a handle to this
+            Coordinator coordinator = new();
+
+            TestEventHandler testEventHandler = new(streamPersistentSubscriptionOptions.SubscriptionId, coordinator);
             IEventSerializer eventSerializer = new EventSerializer();
 
-            ICheckpointStore checkpointStore = new EsCheckpointStore(client, "Test1", 500, testEventHandler);
+            ICheckpointStore checkpointStore = new EsCheckpointStore(client, "Test1", 500, testEventHandler, coordinator);
             using ILoggerFactory loggerFactory =
                 LoggerFactory.Create(builder =>
                                          builder.AddSimpleConsole(options => {
@@ -88,6 +91,8 @@
                                                   new[]{testEventHandler},
                                                   eventSerializer,
                                                   loggerFactory);
+
+            coordinator.Start();
 
             await subscription.StartAsync(cancellationToken);
         }
